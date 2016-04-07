@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.5/journal/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.5/superhero/bootstrap.min.css" rel="stylesheet" />
+    <link href="custom.css" rel="stylesheet">
+    <title>andrek</title>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a class="navbar-brand pageportal" href="#home">andrek</a>
+        <ul class="nav navbar-nav">
+            <li class="active">
+                <a class="pageportal" href="#home">Home</a>
+            </li>
+            <li>
+                <a class="pageportal" href="#portfolio">Portfolio</a>
+            </li>
+            <li>
+                <a class="pageportal" href="#personal">Personal</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="content" class="container">
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <ul>
+                <li>
+                    <a class="text-muted" href="mailto:kiste.andre@gmail.com">kiste.andre@gmail.com</a></li>
+                <li>
+                    <p class="text-muted" id="lastModified"></p>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        getLastModified = function() {
+
+            var monthNames = [
+                "January", "February", "March",
+                "April", "May", "June", "July",
+                "August", "September", "October",
+                "November", "December"
+            ];
+
+            var date = new Date(document.lastModified);
+            var day = date.getDate();
+            var monthIndex = date.getMonth();
+            var year = date.getFullYear();
+
+            return day + ' ' + monthNames[monthIndex] + ' ' + year;
+
+        }
+
+        document.getElementById("lastModified").innerHTML = "Last modified " + getLastModified();
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>
