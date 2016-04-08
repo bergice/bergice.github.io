@@ -30,4 +30,6 @@ h4 {
 }
 .well {
     border-radius: 5px;
+    background: -webkit-linear-gradient(rgb(78,93,108), rgb(70,90,108));
+    background: linear-gradient(rgb(78,93,108), rgb(70,90,108));
 }

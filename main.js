@@ -3,14 +3,15 @@
     var fileexists, loadpage, page;
     loadpage = function(name) {
       return $.get(name, function(data) {
-        return $('#content').html(data);
+        $('#content').html(data);
+        $(".pageportal").unbind("click");
+        return $(".pageportal").click(function(event) {
+          var page;
+          page = $(this).attr("href").substr(1);
+          return loadpage(page + ".html");
+        });
       });
     };
-    $(".pageportal").click(function(event) {
-      var page;
-      page = $(this).attr("href").substr(1);
-      return loadpage(page + ".html");
-    });
     fileexists = function(page) {
       return $.get(page).done(function() {
         return true;

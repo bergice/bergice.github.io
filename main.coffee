@@ -3,12 +3,17 @@ $ ->
     loadpage = (name) ->
         $.get(name, (data) ->
             $('#content').html(data)
+
+            $(".pageportal").unbind("click")
+            # put inside loadpage after applying new html content to update listeners.
+            $(".pageportal").click((event) ->
+                page = $(this).attr("href").substr(1)
+                loadpage(page+".html")
+            )
+
         )
 
-    $(".pageportal").click((event) ->
-        page = $(this).attr("href").substr(1)
-        loadpage(page+".html")
-    )
+    # or put here to reduce load
 
     fileexists = (page) ->
         $.get(page)
