@@ -1,7 +1,9 @@
 $ ->
 
+    # Loads the page described in name into #content.
     loadpage = (name) ->
         $.get(name, (data) ->
+
             $('#content').html(data)
 
             $(".pageportal").unbind("click")
@@ -11,23 +13,21 @@ $ ->
                 loadpage(page+".html")
             )
 
+        ).fail( ->
+
+            loadpage("404.html")
+
         )
 
-    # or put here to reduce load
 
-    fileexists = (page) ->
-        $.get(page)
-            .done( ->
-                return true
-            ).fail( ->
-                return false
-            )
-
+    # Figure out if we have a hash tag, and load it if possible.
     page = window.location.hash
-    if ((page=page.substr(1))? and fileexists(page))
-        if not page is ""
-            loadpage(page+".html")
-        else
-            loadpage("home.html")
+
+    if page
+
+        page = page.substr(1) + ".html";
+        loadpage(page)
+
     else
-        loadpage("404.html")
+
+        loadpage("home.html")
