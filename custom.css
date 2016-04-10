@@ -44,6 +44,7 @@ video {
     height: auto;
 }
 .footer {
+    padding-top: 3px;
     position: absolute;
     bottom: 0;
     width: 100%;
